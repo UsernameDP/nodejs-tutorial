@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Test.html File</h1>
+
+    <div id="time"></div>
+  </body>
+  <script>
+    const timeDisplay = document.getElementById("time");
+
+    class eventEmitter {
+      on = (eventType, callBack) => {
+        this.events = this.events || {};
+        this.events[eventType] = this.events[eventType] || [];
+        this.events[eventType].push(callBack);
+      };
+      emit = (eventType) => {
+        try {
+          if (!this.events[eventType])
+            throw `Event should first be initialized`;
+          for (let callBack of this.events[eventType]) {
+            callBack();
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      };
+    }
+
+    const time = new eventEmitter();
+    time.convertDate = (date) => {
+      return `${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}`;
+    };
+
+    setInterval(() => {
+      const currentTime = time.convertDate(new Date());
+      if (currentTime !== time.currentTime) {
+        time.currentTime = currentTime;
+        console.log(time.currentTime);
+        time.emit("update");
+      }
+    }, 1000);
+
+    time.on("update", () => {
+      timeDisplay.innerHTML = `<b>${time.currentTime}</b>`;
+    });
+  </script>
+</html>

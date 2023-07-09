@@ -1,0 +1,11 @@
+[
+  {
+    "username": "Devin",
+    "roles": {
+      "user": "1121"
+    },
+    "password": "$2b$10$XXuqzh5fPf.9D1Ss8B0pF.TNjqG2z90IWNq8gIJk2MXQwyfJHBPZu",
+    "id": "61ce8223-382a-4bda-890e-cb216964c88c",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRldmluIiwiaWF0IjoxNjcxODU2NzQ5LCJleHAiOjE2NzE5NDMxNDl9.2C75RDZD9nmbRPJn7BpYG3UWvpPkK5-as-Cu5oTrQCM"
+  }
+]
